@@ -24,7 +24,7 @@
         <button type="submit" class="submit">Entrar</button>
         
         <p class="signup-link">
-          <img src="logo.png" alt="Logo da Empresa" class="logo" />
+          <img src="@/assets/logo.png" alt="Logo" />
         </p>
     
         <!-- Link de cadastro de administrador -->

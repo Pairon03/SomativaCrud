@@ -24,7 +24,7 @@
           Sem uma conta?
           <router-link to="/cadastro">Inscreva-se</router-link>
           <br>
-          <img src="logo.png" alt="Logo da Empresa" class="logo" />
+          <img src="@/assets/logo.png" alt="Logo" />
         </p>
         <p class="forgot-password">
           <router-link to="/esqueceuasenha">Esqueceu sua senha?</router-link>

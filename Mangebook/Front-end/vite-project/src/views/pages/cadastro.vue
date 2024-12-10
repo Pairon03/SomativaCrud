@@ -41,7 +41,7 @@
           Já tem uma conta?
           <router-link to="/login">Faça login</router-link>
           <br />
-          <img src="logo.png" alt="Logo da Empresa" class="logo" />
+          <img src="@/assets/logo.png" alt="Logo" />
         </p>
         <p class="voltar">
           <router-link to="/">Voltar</router-link>

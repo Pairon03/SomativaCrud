@@ -1,10 +1,10 @@
 <template>
-    <div>
-   <!-- Navbar -->
-   <header>
+  <div>
+    <!-- Navbar -->
+    <header>
       <nav class="navbar">
         <div class="logo">
-          <img src="logo.png" alt="Logo Mangebook" />
+          <img src="@/assets/logo.png" alt="Logo" />
         </div>
         <div class="search-container">
           <input type="text" placeholder="Pesquisar Mangebook.com.br" />
@@ -21,82 +21,81 @@
         </div>
       </nav>
     </header>
-  
-      <!-- Livros para exploração -->
-      <section class="livros-section">
-        <h2>Livros para exploração</h2>
-        <div class="livros-category">
-          <h3>Para explorar</h3>
-          <div class="livros">
-            <div class="livros-row" v-for="(row, index) in bookRows" :key="index">
-              <div class="livro-item" v-for="(book, bookIndex) in row" :key="bookIndex">
-                <img :src="book.cover" :alt="book.title" />
-                <p>{{ book.title }}</p>
-                <p class="status">{{ book.status }}</p>
-              </div>
+
+    <!-- Livros para exploração -->
+    <section class="livros-section">
+      <h2>Livros para exploração</h2>
+      <div class="livros-category">
+        <h3>Para explorar</h3>
+        <div class="livros">
+          <div class="livros-row" v-for="(row, index) in bookRows" :key="index">
+            <div class="livro-item" v-for="(book, bookIndex) in row" :key="bookIndex">
+              <img :src="book.cover" :alt="book.title" />
+              <p>{{ book.title }}</p>
+              <p class="status">{{ book.status }}</p>
             </div>
           </div>
         </div>
-        <div class="back-btn">
-          <router-link to="/">Voltar</router-link>
-        </div>
-      </section>
-  
-      <!-- Rodapé -->
-      <footer>
-        <div class="social-media">
-          <img src="Instagram.png" alt="Instagram" />
-          <img src="Facebook.png" alt="Facebook" />
-          <br />
-          <a href="#" class="instagram-link">Instagram</a>
-          <a href="#" class="facebook-link">Facebook</a>
-        </div>
-        <div class="footer-logo">
-          <img src="logofooter.png" alt="Logo Mangebook" />
-          <p>Mangebook - Livraria Digital</p>
-        </div>
-      </footer>
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        searchQuery: '',
-        books: [
-          { title: 'Os sertões', cover: 'capa-livro1.PNG', status: 'Disponível para aluguel' },
-          { title: 'A Divina Comédia', cover: 'capa-livro2.PNG', status: 'Disponível para aluguel' },
-          { title: 'Contos de Lima Barreto', cover: 'capa-livro3.PNG', status: 'Alugado' },
-          { title: 'A Ilustre Casa de Ramires', cover: 'capa-livro7.PNG', status: 'Disponível para aluguel' },
-          { title: 'Charneca em Flor', cover: 'capa-livro8.PNG', status: 'Disponível para aluguel' },
-          { title: 'Dom Casmurro', cover: 'capa-livro9.PNG', status: 'Disponível para aluguel' },
-          { title: 'Dom Casmurro', cover: 'capa-livro3.PNG', status: 'Alugado' },
-          { title: 'Dom Quixote', cover: 'capa-livro3.PNG', status: 'Disponível para aluguel' },
-          { title: 'O Pequeno Príncipe', cover: 'capa-livro3.PNG', status: 'Disponível para aluguel' },
-          { title: 'O Hobbit', cover: 'capa-livro3.PNG', status: 'Alugado' },
-        ],
-      };
+      </div>
+      <div class="back-btn">
+        <router-link to="/">Voltar</router-link>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="social-media">
+        <img src="@/assets/Instagram.png" alt="Instagram" />
+        <img src="@/assets/Facebook.png" alt="Facebook" />
+        <br />
+        <a href="#" class="instagram-link">Instagram</a>
+        <a href="#" class="facebook-link">Facebook</a>
+      </div>
+      <div class="footer-logo">
+        <img src="@/assets/logofooter.png" alt="Logo Mangebook" />
+        <p>Mangebook - Livraria Digital</p>
+      </div>
+    </footer>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      searchQuery: '',
+      books: [
+        { title: 'Os sertões', cover: '@/assets/capa-livro1.PNG', status: 'Disponível para aluguel' },
+        { title: 'A Divina Comédia', cover: '@/assets/capa-livro2.PNG', status: 'Disponível para aluguel' },
+        { title: 'Contos de Lima Barreto', cover: '@/assets/capa-livro3.PNG', status: 'Alugado' },
+        { title: 'A Ilustre Casa de Ramires', cover: '@/assets/capa-livro7.PNG', status: 'Disponível para aluguel' },
+        { title: 'Charneca em Flor', cover: '@/assets/capa-livro8.PNG', status: 'Disponível para aluguel' },
+        { title: 'Dom Casmurro', cover: '@/assets/capa-livro9.PNG', status: 'Disponível para aluguel' },
+        { title: 'Dom Casmurro', cover: '@/assets/capa-livro3.PNG', status: 'Alugado' },
+        { title: 'Dom Quixote', cover: '@/assets/capa-livro3.PNG', status: 'Disponível para aluguel' },
+        { title: 'O Pequeno Príncipe', cover: '@/assets/capa-livro3.PNG', status: 'Disponível para aluguel' },
+        { title: 'O Hobbit', cover: '@/assets/capa-livro3.PNG', status: 'Alugado' },
+      ],
+    };
+  },
+  computed: {
+    bookRows() {
+      const rows = [];
+      for (let i = 0; i < this.books.length; i += 5) {
+        rows.push(this.books.slice(i, i + 5));
+      }
+      return rows;
     },
-    computed: {
-      bookRows() {
-        const rows = [];
-        for (let i = 0; i < this.books.length; i += 5) {
-          rows.push(this.books.slice(i, i + 5));
-        }
-        return rows;
-      },
+  },
+  methods: {
+    searchBooks() {
+      // Lógica de pesquisa a ser implementada
+      console.log('Buscando por:', this.searchQuery);
     },
-    methods: {
-      searchBooks() {
-        // Lógica de pesquisa a ser implementada
-        console.log('Buscando por:', this.searchQuery);
-      },
-    },
-  };
-  </script>
-  
-  <style scoped>
+  },
+};
+</script>
+<style scoped>
   /* Reset básico */
   * {
     margin: 0;

@@ -4,7 +4,7 @@
     <header>
       <nav class="navbar">
         <div class="logo">
-          <img src="logo.png" alt="Logo Mangebook" />
+          <img src="@/assets/logo.png" alt="Logo" />
         </div>
         <div class="search-container">
           <input
